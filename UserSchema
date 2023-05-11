@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/user.schema.json",
+  "title": "User",
+  "description": "A user in our system for our auctionhouse. Can be a seller, buyer or a bidder",
+  "type": "object",
+  "properties": {
+    "userID": {
+      "description": "The unique identifier for a user",
+      "type": "string"
+    },
+    "fullName": {
+      "description": "The full name of a user",
+      "type": "string"
+    },
+    "address": {
+      "description": "Physical address of a user",
+      "type": "string"
+    },
+    "phone": {
+      "description": "Telephone number of a user",
+      "type": "string"
+    },
+    "email": {
+      "description": "Email address of a user.",
+      "type": "string"
+    },
+    "password": {
+      "description": "Secret login password for a user.",
+      "type": "string"
+    },
+    "verified": {
+      "description": "Describes whether or not the user is verified by the system as a real user by MitID.",
+      "type": "boolean"
+    },
+    "rating": {
+      "description": "A rating of the user ranging from 1-5.",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 5
+    },
+    "username": {
+      "description": "A username pick the user to be displayed.",
+      "type": "string"
+    }
+  }
+}
