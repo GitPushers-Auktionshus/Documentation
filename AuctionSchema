@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/auction.schema.json",
+  "title": "Auction",
+  "description": "An event auctioning off an article.",
+  "type": "object",
+  "properties": {
+    "auctionID": {
+      "description": "The unique identifier for an auction.",
+      "type": "string"
+    },
+    "highestBid": {
+      "description": "The amount in DKK that's the highest bid on the auction.",
+      "type": "integer"
+    },
+    "bidCounter": {
+      "description": "The amount of bids in the auction.",
+      "type": "integer"
+    },
+    "startDate": {
+      "description": "The date and time the auction beings.",
+      "type": "string"
+    },
+    "endDate": {
+      "description": "The date and time the auction ends.",
+      "type": "string"
+    },
+    "views": {
+      "description": "The ammount of views of the auction.",
+      "type": "integer"
+    },
+    "articleID": {
+      "description": "The unique identifier for the article being sold.",
+      "type": "string"
+    }
+  }
+}
