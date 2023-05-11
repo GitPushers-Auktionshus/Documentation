@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/image.schema.json",
+  "title": "Image",
+  "description": "An image that can be attached to an article. Describes metadata of the image.",
+  "type": "object",
+  "properties": {
+    "imageID": {
+      "description": "The unique identifier for an image.",
+      "type": "string"
+    },
+    "fileName": {
+      "description": "The name of the file.",
+      "type": "string"
+    },
+    "imagePath": {
+      "description": "Describing the path to the file in the database.",
+      "type": "string"
+    },
+    "date": {
+      "description": "The date and time the image was created",
+      "type": "integer"
+    }
+  }
+}
