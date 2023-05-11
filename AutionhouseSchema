@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/Auctionhouse.schema.json",
+  "title": "Auctionhouse",
+  "description": "The auctionhouse that's responsible for an auction.",
+  "type": "object",
+  "properties": {
+    "auctionhouseID": {
+      "description": "The unique identifier for a auctionhouse.",
+      "type": "string"
+    },
+    "name": {
+      "description": "The name of the auctionhouse.",
+      "type": "string"
+    },
+    "address": {
+      "description": "hysical address of an auctionhouse.",
+      "type": "string"
+    },
+    "cvrNumber": {
+      "description": "The unique cvr number of the auctionhouse.",
+      "type": "integer"
+    }
+  }
+}
