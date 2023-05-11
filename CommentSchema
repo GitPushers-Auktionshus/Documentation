@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/comment.schema.json",
+  "title": "Comment",
+  "description": "A comment made by a user on an auction. Can also contain a bid",
+  "type": "object",
+  "properties": {
+    "commentID": {
+      "description": "The unique identifier for a comment.",
+      "type": "string"
+    },
+    "dataCreated": {
+      "description": "The date and time where the comment was created by a user.",
+      "type": "string"
+    },
+    "message": {
+      "description": "The content of the comment.",
+      "type": "string"
+    },
+    "userID": {
+      "description": "The unique identifier for the user that made the comment.",
+      "type": "integer"
+    },
+    "auctionID": {
+      "description": "The unique identifier for the auction in which the comment was made.",
+      "type": "string"
+    }
+  }
+}
