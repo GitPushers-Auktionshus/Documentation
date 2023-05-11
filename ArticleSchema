@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/article.schema.json",
+  "title": "Article",
+  "description": "An article in our system that can be auctioned and bought",
+  "type": "object",
+  "properties": {
+    "articleID": {
+      "description": "The unique identifier for an article.",
+      "type": "string"
+    },
+    "name": {
+      "description": "Name of the article.",
+      "type": "string"
+    },
+    "noReserve": {
+      "description": "Describes whether or not the article has a minimum price.",
+      "type": "boolean"
+    },
+    "estimatedPrice": {
+      "description": "Estimated price valued by someone from the auctionhouse.",
+      "type": "integer"
+    },
+    "description": {
+      "description": "Description of the article.",
+      "type": "string"
+    },
+    "image": {
+      "description": "A list of image metadata.",
+      "type": "string"
+    },
+    "category": {
+      "description": "Describes the category of the article.",
+      "type": "string"
+    },
+    "sold": {
+      "description": "Describes whether or not the article is sold.",
+      "type": "boolean"
+    },
+    "auctionhouseID": {
+      "description": "The unique identifier of the auctionhouse that sells the article.",
+      "type": "string"
+    },
+    "sellerID": {
+      "description": "The unique identifier of the user that sells the article.",
+      "type": "string"
+    },
+    "minPrice": {
+      "description": "A minimum price set by the seller of the article.",
+      "type": "integer"
+    },
+    "buyerID": {
+      "description": "The unique identifier of the user that bought the article.",
+      "type": "string"
+    }
+  }
+}
