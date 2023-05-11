@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/bid.schema.json",
+  "title": "Bid",
+  "description": "A bid on an article in an auction.",
+  "type": "object",
+  "properties": {
+    "bidID": {
+      "description": "The unique identifier for a bid.",
+      "type": "string"
+    },
+    "date": {
+      "description": "The date and time where the bid was placed.",
+      "type": "string"
+    },
+    "price": {
+      "description": "The amount of the bid using the currency: DKK.",
+      "type": "integer"
+    },
+    "userID": {
+      "description": "The unique identifier for the user that placed the bid.",
+      "type": "string"
+    },
+    "auctionID": {
+      "description": "The unique identifier for the auction that's selling the article.",
+      "type": "string"
+    }
+  }
+}
