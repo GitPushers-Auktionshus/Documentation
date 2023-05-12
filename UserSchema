@@ -9,8 +9,12 @@
       "description": "The unique identifier for a user",
       "type": "string"
     },
-    "fullName": {
-      "description": "The full name of a user",
+    "firstName": {
+      "description": "The first name of a user",
+      "type": "string"
+    },
+    "lastName": {
+      "description": "The last name of a user",
       "type": "string"
     },
     "address": {
