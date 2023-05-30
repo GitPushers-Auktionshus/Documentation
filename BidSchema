@@ -11,19 +11,15 @@
     },
     "date": {
       "description": "The date and time where the bid was placed.",
-      "type": "string"
+      "type": "DateTime"
     },
     "price": {
       "description": "The amount of the bid using the currency: DKK.",
       "type": "integer"
     },
-    "userID": {
-      "description": "The unique identifier for the user that placed the bid.",
-      "type": "string"
-    },
-    "auctionID": {
-      "description": "The unique identifier for the auction that's selling the article.",
-      "type": "string"
+    "bidder": {
+      "description": "The user that placed the bid.",
+      "type": "user"
     }
   }
 }
