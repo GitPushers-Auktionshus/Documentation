@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/category.schema.json",
+  "title": "Category",
+  "description": "An category in our system",
+  "type": "object",
+  "properties": {
+    "categoryCode": {
+      "description": "The unique identifier of the category code.",
+      "type": "string"
+    },
+    "categoryName": {
+      "description": "Name of the category.",
+      "type": "string"
+    },
+    "itemDescription": {
+      "description": "A description of the item in the category",
+      "type": "string"
+    },
+    "auctionDate": {
+      "description": "Date and time of the auction start.",
+      "type": "DateTime"
+    } 
+  }
+}
