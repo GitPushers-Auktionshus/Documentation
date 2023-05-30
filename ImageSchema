@@ -19,7 +19,7 @@
     },
     "date": {
       "description": "The date and time the image was created",
-      "type": "integer"
+      "type": "DateTime"
     }
   }
 }
