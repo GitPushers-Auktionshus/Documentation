@@ -27,7 +27,7 @@
     },
     "images": {
       "description": "A list of image metadata.",
-      "type": "string"
+      "type": "List<string>"
     },
     "category": {
       "description": "Describes the category of the article.",
@@ -37,21 +37,21 @@
       "description": "Describes whether or not the article is sold.",
       "type": "boolean"
     },
-    "auctionhouseID": {
-      "description": "The unique identifier of the auctionhouse that sells the article.",
-      "type": "string"
+    "auctionHouse": {
+      "description": "The auctionhouse that sells the article.",
+      "type": "auctionhouse"
     },
-    "sellerID": {
-      "description": "The unique identifier of the user that sells the article.",
-      "type": "string"
+    "seller": {
+      "description": "The user that sells the article.",
+      "type": "user"
     },
     "minPrice": {
       "description": "A minimum price set by the seller of the article.",
       "type": "integer"
     },
-    "buyerID": {
-      "description": "The unique identifier of the user that bought the article.",
-      "type": "string"
+    "buyer": {
+      "description": "The user that bought the article.",
+      "type": "user"
     }
   }
 }
