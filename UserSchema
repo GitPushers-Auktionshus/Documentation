@@ -39,7 +39,7 @@
     },
     "rating": {
       "description": "A rating of the user ranging from 1-5.",
-      "type": "integer",
+      "type": "double",
       "minimum": 0,
       "maximum": 5
     },
