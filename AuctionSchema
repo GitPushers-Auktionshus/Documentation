@@ -13,25 +13,25 @@
       "description": "The amount in DKK that's the highest bid on the auction.",
       "type": "integer"
     },
-    "bidCounter": {
-      "description": "The amount of bids in the auction.",
-      "type": "integer"
+    "bids": {
+      "description": "A list of all bids in the auction",
+      "type": "List<bid>"
     },
     "startDate": {
       "description": "The date and time the auction beings.",
-      "type": "string"
+      "type": "DateTime"
     },
     "endDate": {
       "description": "The date and time the auction ends.",
-      "type": "string"
+      "type": "DateTime"
     },
     "views": {
       "description": "The ammount of views of the auction.",
       "type": "integer"
     },
-    "articleID": {
-      "description": "The unique identifier for the article being sold.",
-      "type": "string"
+    "article": {
+      "description": "The article being sold.",
+      "type": "article"
     }
   }
 }
