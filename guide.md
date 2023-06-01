@@ -6,12 +6,12 @@ Her er en step-by-step guide til at benytte vores auktionsplatform lokalt og de 
 ## **1. Opret Docker Netværk**
 ---
 Først logges der ind på din Docker bruger:
-``` bash
+``` console
 $ docker login
 ```
 Derefter skal der oprettes et external bridge-netværk, som skal bruges til at binde de to Docker-compose filerne sammen.  
 Kør kommandoen:
-``` bash
+``` console
 $ docker network create sharednetwork
 ```
 
@@ -22,7 +22,7 @@ Start med at hente de følgende Docker compose filer i vores GitHub repository *
 * `docker-compose-aux.yml`
 
 Kør derefter `docker-compose-aux.yml` fil i en bash-terminal med kommandoen:
-``` bash
+``` console
 $ docker compose -f docker-compose-aux.yml up -d
 ```
 Herefter er der to muligheder til at fylde vaulten:
@@ -30,33 +30,36 @@ Herefter er der to muligheder til at fylde vaulten:
 1. Tjek om scriptet i `script` containeren er fuldført. Den skriver ud til konsollen, hvis der er gemt variabler i vaulten.
 
 Hvis den melder følgende fejl:
-``` bash
+``` console
 failed to create client: parse "http://jacob:8200\r": net/url: invalid control character in URL
 ```
 Skal du følge det næste skridt.
 
 2. Gå ind i `vault-dev`-containeren, og derefter ind i terminalen. Skriv først  følgende kommando, for at export VAULT_ADDR:
-``` bash
+``` console
 $ export VAULT_ADDR='http://0.0.0.0:8200'
 ```
 Skriv herefter følgende kommando, for at fylde vaulten med secrets:
-``` bash
+``` console
 $ sh fill.sh
 ```
 
 Tjek herefter om `rabbitmq` containeren er oppe at køre. Hvis ikke, så skal den startes igen.
 
 Kør derefter `docker-compose-services.yml` i terminalen med kommandoen:
-``` bash
+``` console
 $ docker compose -f docker-compose-services.yml up -d
 ```
 Nu burde alle services være oppe at køre (undtagen `script`-containeren), og vi kan nu tilgå de forskellige API-endpoints.
 
 ## **3. Opret Bruger**
 ---
-> Du kan følge med i **MongoDB Compass** for at se, om ting bliver gemt, ved at connecte til ``mongodb://admin:1234@localhost:27018/?authSource=admin``
+> Du kan følge med i **MongoDB Compass** for at se, om ting bliver gemt, ved at connecte til databasen i Compass: ``mongodb://admin:1234@localhost:27018/?authSource=admin``
 
 Du kan selv vælge om du vil tilgå de forskellige endpoints via Postman eller cURL scripts. I guiden benytter vi cURL scripts for hurtigere adgang og eksekvering.
+
+> Du kan også få adgang til vores workspace i Postman med dette link, hvis du vil tilgå alle endpoints:  
+https://app.getpostman.com/join-team?invite_code=66c0fe8b87be0d2e4a8d9095776f6fc0&target_code=92e0ede8725339269ba758278c79a4b3
 
 For at oprette en bruger, tilgår vi ``Users-service``. Du kan skrive følgende cURL-kommando ind i en shell terminal, for at oprette brugeren:
 ``` bash
@@ -78,12 +81,12 @@ curl --request POST \
 > Husk at gemme dit **userID** eller find det i databasen.
 
 Vi gemmer **userID** i en bash-variabel:
-``` bash
+``` console
 $ userId="<indsæt userID her>
 ```
 
 Test om variablen er gemt ved at køre kommandoen:
-``` bash
+``` console
 $ echo $userId
 ```
 
@@ -101,15 +104,15 @@ curl --request POST \
 }'
 ```
 Efter login, får du en JWT-token returneret. Din token ser nogenlunde ud som denne:
-``` bash
-{
+``` json
+{ 
 "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6ImhlbnJpayIsImV4cCI6MTY4NTQ0MTcyMSwiaXNzIjoiSkFEQURBRERBQURBIiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdCJ9.PKotjwX3xb6NOilLOWtqObw6hd7WJsmYFuuIY9NyrZo"
 }
 ```
 Denne token skal gemmes(kun strengen, uden " "), da den bruges til at tilgå endpoints som er beskyttet og som kræver **Authorization** for at tilgå dem.
 
 Vi gemmer også **token** i en bash-variabel:
-``` bash
+``` console
 $ token="<indsæt token her>"
 ```
 
@@ -136,7 +139,7 @@ curl --location 'http://localhost:4000/Users/addAuctionhouse/' \
 > Husk at gemme **auctionID** som bliver returneret i terminalen eller find det i databasen.
 
 Gemmer **auctionID** i en bash variabel:
-``` bash
+``` console
 $ auctionhousedId="<indsæt auctionId her>
 ```
 
@@ -163,10 +166,18 @@ curl --request POST \
 ```
 > Husk at gemme den returnerede **articleID** som bliver returneret i terminalen eller find det i databasen.
 
-Vi gemmer også **articleID** i en bash variabel:
-``` bash
+Gemmer **articleID** i en bash variabel:
+``` console
 $ articleId="<indsæt articleId her>"
 ```
+
+Vi kan også vedhæfte et billede til vores nye effekt ved at køre denne kommando:
+``` bash
+curl --location --request PUT "http://localhost:4000/ArticleService/addArticleImage/$articleId" \
+--header "Authorization: Bearer $token" \
+--form "=@$(pwd)/spisestol.png"
+```
+> For at ovenstående kommando virker med ``$pwd``, skal man stå i mappen hvor billedet er gemt.
 
 ## **7. Opret Auction**
 ---
@@ -177,14 +188,14 @@ curl --location 'http://localhost:4000/AuctionPlanning/addAuction' \
 --header "Authorization: Bearer $token" \
 --data '{
   "StartDate": "2023-05-30T12:00:00",
-  "EndDate": "2023-06-05T14:00:00",
+  "EndDate": "2023-06-20T14:00:00",
   "ArticleID": "'"$articleId"'"
 }'
 ```
 > Husk at gemme den returnerede **auctionID** som bliver returneret i terminalen eller find det i databasen.
 
 Vi gemmer også **auctionID** i en bash variabel:
-``` bash
+``` console
 $ auctionId="<indsæt auctionID her>"
 ```
 
