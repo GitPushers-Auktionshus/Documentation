@@ -1,0 +1,95 @@
+{
+	"info": {
+		"_postman_id": "f399b2af-1bf6-4421-b681-3727d1747955",
+		"name": "AuctionService",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "AddBid",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IkxpZ2JlIiwiZXhwIjoxNjg1MDk2ODEyLCJpc3MiOiJKQURBREFEREFBREEiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0In0.623AMJl4-KYhM7H2PIV8r1RqDQjabbd8ouJ7kZSEKwI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"Price\": 1021,\n    \"BidderID\": \"647078d5df198012246bba19\",\n    \"AuctionID\": \"64707f35f7614f07b2b2c6ef\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://gitpushersauktionshuset.eastus.cloudapp.azure.com:4000/AuctionService/addBid",
+					"protocol": "http",
+					"host": [
+						"gitpushersauktionshuset",
+						"eastus",
+						"cloudapp",
+						"azure",
+						"com"
+					],
+					"port": "4000",
+					"path": [
+						"AuctionService",
+						"addBid"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddComment",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IkxpZ2JlIiwiZXhwIjoxNjg1MDk2ODEyLCJpc3MiOiJKQURBREFEREFBREEiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0In0.623AMJl4-KYhM7H2PIV8r1RqDQjabbd8ouJ7kZSEKwI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"UserID\": \"64707904df198012246bba1a\",\n    \"Message\": \"Hej\",\n    \"AuctionID\": \"647082210f2ff6f40ef5e118\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://gitpushersauktionshuset.eastus.cloudapp.azure.com:4000/AuctionService/addComment",
+					"protocol": "http",
+					"host": [
+						"gitpushersauktionshuset",
+						"eastus",
+						"cloudapp",
+						"azure",
+						"com"
+					],
+					"port": "4000",
+					"path": [
+						"AuctionService",
+						"addComment"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,279 @@
+{
+	"info": {
+		"_postman_id": "fe89e769-37f3-44f0-8d59-815435a22dc7",
+		"name": "UserService",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetUserByID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IkxpZ2JlIiwiZXhwIjoxNjg1MDk2ODEyLCJpc3MiOiJKQURBREFEREFBREEiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0In0.623AMJl4-KYhM7H2PIV8r1RqDQjabbd8ouJ7kZSEKwI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://gitpushersauktionshuset.eastus.cloudapp.azure.com:4000/Users/getUser/647075cadf198012246bba17",
+					"protocol": "http",
+					"host": [
+						"gitpushersauktionshuset",
+						"eastus",
+						"cloudapp",
+						"azure",
+						"com"
+					],
+					"port": "4000",
+					"path": [
+						"Users",
+						"getUser",
+						"647075cadf198012246bba17"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllUsers",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IkxpZ2JlIiwiZXhwIjoxNjg1MDk2ODEyLCJpc3MiOiJKQURBREFEREFBREEiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0In0.623AMJl4-KYhM7H2PIV8r1RqDQjabbd8ouJ7kZSEKwI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://gitpushersauktionshuset.eastus.cloudapp.azure.com:4000/Users/getAllUsers",
+					"protocol": "http",
+					"host": [
+						"gitpushersauktionshuset",
+						"eastus",
+						"cloudapp",
+						"azure",
+						"com"
+					],
+					"port": "4000",
+					"path": [
+						"Users",
+						"getAllUsers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteUser",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IkxpZ2JlIiwiZXhwIjoxNjg1MDk2ODEyLCJpc3MiOiJKQURBREFEREFBREEiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0In0.623AMJl4-KYhM7H2PIV8r1RqDQjabbd8ouJ7kZSEKwI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://gitpushersauktionshuset.eastus.cloudapp.azure.com:4000/Users/deleteUser/64707697df198012246bba18",
+					"protocol": "http",
+					"host": [
+						"gitpushersauktionshuset",
+						"eastus",
+						"cloudapp",
+						"azure",
+						"com"
+					],
+					"port": "4000",
+					"path": [
+						"Users",
+						"deleteUser",
+						"64707697df198012246bba18"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateUser",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IkxpZ2JlIiwiZXhwIjoxNjg1MDk2MjY5LCJpc3MiOiJKQURBREFEREFBREEiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0In0.NYkC_k9nu-x8GhbVIzgWQSjddK6FP6HCZXA2_iXhsQ0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\t{\n    \"FirstName\": \"Morten\",\n\t\"LastName\": \"Kaae\",\n\t\"Address\": \"Peter Sabroes Gade\",\n\t\"Phone\": \"22437954\",\n\t\"Email\": \"mortenkaae@gnail.com\",\n\t\"Verified\": false,\n\t\"Rating\": 5.0,\n\t\"Username\": \"Måtte\",\n    \"Password\": \"x\"\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://gitpushersauktionshuset.eastus.cloudapp.azure.com:4000/Users/updateuser/64707697df198012246bba18",
+					"protocol": "http",
+					"host": [
+						"gitpushersauktionshuset",
+						"eastus",
+						"cloudapp",
+						"azure",
+						"com"
+					],
+					"port": "4000",
+					"path": [
+						"Users",
+						"updateuser",
+						"64707697df198012246bba18"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdatePassword",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IkxpZ2JlIiwiZXhwIjoxNjg1MDk2MjY5LCJpc3MiOiJKQURBREFEREFBREEiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0In0.NYkC_k9nu-x8GhbVIzgWQSjddK6FP6HCZXA2_iXhsQ0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\t{\n    \"Username\": \"Riceguard\",\n    \"FirstName\": \"Jacob\",\n    \"LastName\": \"Risgaard\",\n    \"Address\": \"Rosenhøj 55\",\n    \"Phone\": \"66447324\",\n    \"Email\": \"jacobriceguard@gmail.com\",\n    \"Password\": \"1234\",\n    \"Verified\": true,\n    \"Rating\": 8\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://gitpushersauktionshuset.eastus.cloudapp.azure.com:4000/Users/updatepassword/647075cadf198012246bba17",
+					"protocol": "http",
+					"host": [
+						"gitpushersauktionshuset",
+						"eastus",
+						"cloudapp",
+						"azure",
+						"com"
+					],
+					"port": "4000",
+					"path": [
+						"Users",
+						"updatepassword",
+						"647075cadf198012246bba17"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddUser",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IlBlcm5pbGxlIiwiZXhwIjoxNjg1MDA0OTY3LCJpc3MiOiJKQURBREFEREFBREEiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0In0.9xNDJxPl4sLV7RBP-lffZJ5vVxsjU3ajuDyaZbVtBeI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"Username\": \"Ligbe\",\n    \"FirstName\": \"Jacob\",\n    \"LastName\": \"Kaae\",\n    \"Address\": \"Broloftet 19, st. mf.\",\n    \"Phone\": \"22437986\",\n    \"Email\": \"jacobkaae0511@gmail.com\",\n    \"Password\": \"1234\",\n    \"Verified\": true,\n    \"Rating\": 10\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://gitpushersauktionshuset.eastus.cloudapp.azure.com:4000/Users/addUser/",
+					"protocol": "http",
+					"host": [
+						"gitpushersauktionshuset",
+						"eastus",
+						"cloudapp",
+						"azure",
+						"com"
+					],
+					"port": "4000",
+					"path": [
+						"Users",
+						"addUser",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddAuctionhouse",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"Name\": \"G&O\",\n    \"Address\": \"Broloftet 19\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://gitpushersauktionshuset.eastus.cloudapp.azure.com:4000/Users/addAuctionhouse/",
+					"protocol": "http",
+					"host": [
+						"gitpushersauktionshuset",
+						"eastus",
+						"cloudapp",
+						"azure",
+						"com"
+					],
+					"port": "4000",
+					"path": [
+						"Users",
+						"addAuctionhouse",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,75 +1,27 @@
-# **Guide til GitPushers auktionsplatform**
+# **Guide til GitPushers auktionsplatform på Azure!**
 > Anders, Frederik, Jacob & Jacob
 
-Her er en step-by-step guide til at benytte vores auktionsplatform lokalt og de forskellige endpoints som skal benyttes for at udføre en auktion.
+Her er en step-by-step guide til at benytte vores auktionsplatform og de forskellige endpoints som skal benyttes for at udføre en auktion.
 
-## **1. Opret Docker Netværk**
----
-Først logges der ind på din Docker bruger:
-``` console
-$ docker login
-```
-Derefter skal der oprettes et external bridge-netværk, som skal bruges til at binde de to Docker-compose filerne sammen.  
-Kør kommandoen:
-``` console
-$ docker network create sharednetwork
-```
+Du kan følge med på vores **Grafana** dashbaord for at se, om de forskellige API'er bliver kaldt, ved at gå ind på: ``http://40.117.188.130:3000/d/a19cb934-3706-4116-985e-6064e3d830f9/auktionshus-dashboard?orgId=1&refresh=5s``
 
-## **2. Docker Compose Filer**
----
-Start med at hente de følgende Docker compose filer i vores GitHub repository **DockerComposeFiles**:
-* `docker-compose-services.yml`
-* `docker-compose-aux.yml`
-
-Kør derefter `docker-compose-aux.yml` fil i en bash-terminal med kommandoen:
-``` console
-$ docker compose -f docker-compose-aux.yml up -d
-```
-Herefter er der to muligheder til at fylde vaulten:
-
-1. Tjek om scriptet i `script` containeren er fuldført. Den skriver ud til konsollen, hvis der er gemt variabler i vaulten.
-
-Hvis den melder følgende fejl:
-``` console
-failed to create client: parse "http://jacob:8200\r": net/url: invalid control character in URL
-```
-Skal du følge det næste skridt.
-
-2. Gå ind i `vault-dev`-containeren, og derefter ind i terminalen. Skriv først  følgende kommando, for at export VAULT_ADDR:
-``` console
-$ export VAULT_ADDR='http://0.0.0.0:8200'
-```
-Skriv herefter følgende kommando, for at fylde vaulten med secrets:
-``` console
-$ sh fill.sh
-```
-
-Tjek herefter om `rabbitmq` containeren er oppe at køre. Hvis ikke, så skal den startes igen.
-
-Kør derefter `docker-compose-services.yml` i terminalen med kommandoen:
-``` console
-$ docker compose -f docker-compose-services.yml up -d
-```
-Nu burde alle services være oppe at køre (undtagen `script`-containeren), og vi kan nu tilgå de forskellige API-endpoints.
-
-## **3. Opret Bruger**
----
-> Du kan følge med i **MongoDB Compass** for at se, om ting bliver gemt, ved at connecte til databasen i Compass: ``mongodb://admin:1234@localhost:27018/?authSource=admin``
+Her skal du logge ind med admin brugeren:  
+``Username: admin Password: admin``
 
 Du kan selv vælge om du vil tilgå de forskellige endpoints via Postman eller cURL scripts. I guiden benytter vi cURL scripts for hurtigere adgang og eksekvering.
 
-> Du kan også få adgang til vores workspace i Postman med dette link, hvis du vil tilgå alle endpoints:  
-https://app.getpostman.com/join-team?invite_code=66c0fe8b87be0d2e4a8d9095776f6fc0&target_code=92e0ede8725339269ba758278c79a4b3
-
+> Du kan også importere vores workspace collections som indeholder alle de forskellige API'er på vores services. Filerne ligger i den tilsendte mappe.
+## **1. Opret Bruger**
+---
 For at oprette en bruger, tilgår vi ``Users-service``. Du kan skrive følgende cURL-kommando ind i en shell terminal, for at oprette brugeren:
 ``` bash
 curl --request POST \
-  --url http://localhost:4000/Users/addUser \
+  --url http://gitpushersauktionshuset.eastus.cloudapp.azure.com:4000/Users/addUser/ \
   --header 'Content-Type: application/json' \
   --data '{
 	"FirstName": "Henrik",
 	"LastName": "Jensen",
-	"Address": "Sønderhøj 30",
+	"Address": "Soenderhoej 30",
 	"Phone": "12341234",
 	"Email": "henrikjensen@gmail.com",
 	"Password": "password",
@@ -82,7 +34,7 @@ curl --request POST \
 
 Vi gemmer **userID** i en bash-variabel:
 ``` console
-$ userId="<indsæt userID her>
+$ userId="<indsæt userID her>"
 ```
 
 Test om variablen er gemt ved at køre kommandoen:
@@ -90,7 +42,7 @@ Test om variablen er gemt ved at køre kommandoen:
 $ echo $userId
 ```
 
-## **4. Login**
+## **2. Login**
 ---
 For at login, skal du bruge dit ``Username`` og ``Password`` til at tilgå login endpointen, som ligger i ``Auth-service``.
 Kør følgende kommando i terminalen:
@@ -123,28 +75,14 @@ curl --request GET \
   --header "Authorization: Bearer $token"
 ```
 
-## **5. Opret Auctionhouse**
----
-Næste trin er at oprette et auktionshus. Vi kalder ``addAuctionHouse`` endpointet i ``Users-service`` med følgende cURL kommando:
-``` bash
-curl --location 'http://localhost:4000/Users/addAuctionhouse/' \
---header 'Content-Type: application/json' \
---header "Authorization: Bearer $token" \
---data '{
-    "Name": "G&O",
-    "Address": "Groennegade 45",
-    "CvrNumber": "10150817"
-}'
-```
-> Husk at gemme **auctionID** som bliver returneret i terminalen eller find det i databasen.
-
-Gemmer **auctionID** i en bash variabel:
-``` console
-$ auctionhousedId="<indsæt auctionId her>
-```
-
-## **6. Opret Article**
+## **3. Opret Article**
 --- 
+Eftersom vi allerede har en masse seed data oprettet i databasen, skal du benytte vores auktionshus som vi har oprettet på forhånd. Vi gemmer derfor ``auctionhouseId`` i en bash variabel:
+
+``` bash
+$ auctionhouseId="64884f829f0181f169457039"
+```
+
 Næste trin er at oprette en effekt, som skal lægges op til auktion. Vi kalder ``addArticle`` endpointet i ``Article-service`` med følgende cURL kommando:
 ``` bash
 curl --request POST \
@@ -179,7 +117,7 @@ curl --location --request PUT "http://localhost:4000/ArticleService/addArticleIm
 ```
 > For at ovenstående kommando virker med ``$pwd``, skal man stå i mappen hvor billedet er gemt.
 
-## **7. Opret Auction**
+## **4. Opret Auction**
 ---
 Næste skridt er, at oprette en auktion med den nyoprettede effekt. Vi kalder ``addAuction`` endpointet i ``AuctionPlanning-service`` med følgende cURL kommando:
 ``` bash
@@ -187,8 +125,8 @@ curl --location 'http://localhost:4000/AuctionPlanning/addAuction' \
 --header 'Content-Type: application/json' \
 --header "Authorization: Bearer $token" \
 --data '{
-  "StartDate": "2023-05-30T12:00:00",
-  "EndDate": "2023-06-20T14:00:00",
+  "StartDate": "2023-06-13T12:00:00",
+  "EndDate": "2023-06-24T14:00:00",
   "ArticleID": "'"$articleId"'"
 }'
 ```
@@ -199,7 +137,7 @@ Vi gemmer også **auctionID** i en bash variabel:
 $ auctionId="<indsæt auctionID her>"
 ```
 
-## **8. Add Bid**
+## **5. Add Bid**
 ---
 Til sidst skal vi tilføje et bud til vores nye auktion. Det gør vi ved at kalde addBid endpointet i Auction-service med følgende cUrl kommando:
 ``` bash
@@ -213,4 +151,4 @@ curl --location --request PUT 'http://localhost:4000/AuctionService/addBid' \
 }'
 ```
 
-Vi har nu været igennem hele flowet for en auktion.
+Vi har nu været igennem hele flowet for at afgive et bud på en auktion.

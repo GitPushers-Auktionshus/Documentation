@@ -1,0 +1,344 @@
+{
+	"info": {
+		"_postman_id": "fe09ff8e-435c-4a07-91e8-93889d821385",
+		"name": "ArticleService",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Delete Article",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IkxpZ2JlIiwiZXhwIjoxNjg1MDk2ODEyLCJpc3MiOiJKQURBREFEREFBREEiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0In0.623AMJl4-KYhM7H2PIV8r1RqDQjabbd8ouJ7kZSEKwI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://gitpushersauktionshuset.eastus.cloudapp.azure.com:4000/ArticleService/deleteArticle/64707b96f862523e0fa356cd",
+					"protocol": "http",
+					"host": [
+						"gitpushersauktionshuset",
+						"eastus",
+						"cloudapp",
+						"azure",
+						"com"
+					],
+					"port": "4000",
+					"path": [
+						"ArticleService",
+						"deleteArticle",
+						"64707b96f862523e0fa356cd"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Article",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IkxpZ2JlIiwiZXhwIjoxNjg1NDQ1NDM4LCJpc3MiOiJKQURBREFEREFBREEiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0In0.N_ZozgFpq-g9NWXxhczlhKyN7eZ-oR5jV2ZNeul9XQc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"Name\": \"Bord\",\n  \"NoReserve\": true,\n  \"EstimatedPrice\": 10.4,\n  \"Description\": \"Du kan spise ved det\",\n  \"Category\": \"Møbler\",\n  \"Sold\": false,\n  \"AuctionhouseID\": \"6475ce16066f6a9390d60c9e\",\n  \"SellerID\": \"647075cadf198012246bba17\",\n  \"MinPrice\": 100,\n  \"BuyerID\": \"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://gitpushersauktionshuset.eastus.cloudapp.azure.com:4000/ArticleService/addArticle",
+					"protocol": "http",
+					"host": [
+						"gitpushersauktionshuset",
+						"eastus",
+						"cloudapp",
+						"azure",
+						"com"
+					],
+					"port": "4000",
+					"path": [
+						"ArticleService",
+						"addArticle"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Article Image",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IkxpZ2JlIiwiZXhwIjoxNjg1MDk2ODEyLCJpc3MiOiJKQURBREFEREFBREEiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0In0.623AMJl4-KYhM7H2PIV8r1RqDQjabbd8ouJ7kZSEKwI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "",
+							"type": "file",
+							"src": "/Users/jacobkaae/Downloads/stol.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://gitpushersauktionshuset.eastus.cloudapp.azure.com:4000/ArticleService/addArticleImage/64707ebef862523e0fa356d2",
+					"protocol": "http",
+					"host": [
+						"gitpushersauktionshuset",
+						"eastus",
+						"cloudapp",
+						"azure",
+						"com"
+					],
+					"port": "4000",
+					"path": [
+						"ArticleService",
+						"addArticleImage",
+						"64707ebef862523e0fa356d2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove Article Image",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IkxpZ2JlIiwiZXhwIjoxNjg1MDk2ODEyLCJpc3MiOiJKQURBREFEREFBREEiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0In0.623AMJl4-KYhM7H2PIV8r1RqDQjabbd8ouJ7kZSEKwI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "",
+							"type": "file",
+							"src": "/Users/jacobkaae/Downloads/stol.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://gitpushersauktionshuset.eastus.cloudapp.azure.com:4000/ArticleService/removeImage/64707db4f862523e0fa356ce/64707e28f862523e0fa356d0",
+					"protocol": "http",
+					"host": [
+						"gitpushersauktionshuset",
+						"eastus",
+						"cloudapp",
+						"azure",
+						"com"
+					],
+					"port": "4000",
+					"path": [
+						"ArticleService",
+						"removeImage",
+						"64707db4f862523e0fa356ce",
+						"64707e28f862523e0fa356d0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Articles",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "",
+							"type": "file",
+							"src": "/Users/jacobkaae/Downloads/stol.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://gitpushersauktionshuset.eastus.cloudapp.azure.com:4000/ArticleService/getAll",
+					"protocol": "http",
+					"host": [
+						"gitpushersauktionshuset",
+						"eastus",
+						"cloudapp",
+						"azure",
+						"com"
+					],
+					"port": "4000",
+					"path": [
+						"ArticleService",
+						"getAll"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Article by ID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "",
+							"type": "file",
+							"src": "/Users/jacobkaae/Downloads/stol.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://gitpushersauktionshuset.eastus.cloudapp.azure.com:4000/ArticleService/getArticle/64707ebef862523e0fa356d2",
+					"protocol": "http",
+					"host": [
+						"gitpushersauktionshuset",
+						"eastus",
+						"cloudapp",
+						"azure",
+						"com"
+					],
+					"port": "4000",
+					"path": [
+						"ArticleService",
+						"getArticle",
+						"64707ebef862523e0fa356d2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Price",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IkxpZ2JlIiwiZXhwIjoxNjg1MDk2ODEyLCJpc3MiOiJKQURBREFEREFBREEiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0In0.623AMJl4-KYhM7H2PIV8r1RqDQjabbd8ouJ7kZSEKwI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "",
+							"type": "file",
+							"src": "/Users/jacobkaae/Downloads/stol.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://gitpushersauktionshuset.eastus.cloudapp.azure.com:4000/ArticleService/updatePrice/64707ebef862523e0fa356d2/10.5",
+					"protocol": "http",
+					"host": [
+						"gitpushersauktionshuset",
+						"eastus",
+						"cloudapp",
+						"azure",
+						"com"
+					],
+					"port": "4000",
+					"path": [
+						"ArticleService",
+						"updatePrice",
+						"64707ebef862523e0fa356d2",
+						"10.5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Sold",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IkxpZ2JlIiwiZXhwIjoxNjg1MDk2ODEyLCJpc3MiOiJKQURBREFEREFBREEiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0In0.623AMJl4-KYhM7H2PIV8r1RqDQjabbd8ouJ7kZSEKwI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "",
+							"type": "file",
+							"src": "/Users/jacobkaae/Downloads/stol.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://gitpushersauktionshuset.eastus.cloudapp.azure.com:4000/ArticleService/updateSold/64707ebef862523e0fa356d2",
+					"protocol": "http",
+					"host": [
+						"gitpushersauktionshuset",
+						"eastus",
+						"cloudapp",
+						"azure",
+						"com"
+					],
+					"port": "4000",
+					"path": [
+						"ArticleService",
+						"updateSold",
+						"64707ebef862523e0fa356d2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
